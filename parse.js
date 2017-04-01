@@ -5,7 +5,7 @@ function detect(domStr) {
         dom: dom,
         all: dom.all,
         bads: [].slice.apply(dom.querySelectorAll("*")).filter((node, index)=> {
-            return ([].slice.apply(node.attributes).filter(attr=>attr.nodeName.indexOf("on") == 0).length || node.nodeName == "SCRIPT" || node.nodeName == "A" && ["javascript:", "data:", "bolb:", "file:"].indexOf(node.protocol) == 0)
+            return ([].slice.apply(node.attributes).filter(attr=>attr.nodeName.indexOf("on") == 0).length || node.nodeName == "SCRIPT" || node.nodeName == "A" && ["javascript:", "data:", "blob:", "file:"].indexOf(node.protocol) == 0)
         }).map(node=>{
             return {
                 value:node.outerHTML,
